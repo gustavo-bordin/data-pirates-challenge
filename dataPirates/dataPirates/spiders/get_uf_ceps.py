@@ -1,4 +1,5 @@
 from scrapy.selector import Selector
+from time import sleep
 import scrapy
 import uuid
 import json
@@ -22,11 +23,14 @@ class Get_uf_ceps(scrapy.Spider):
                 'pagini': '1',
                 'pagfim': '112',
             }
+
             yield scrapy.FormRequest(
                 self.url,
                 formdata=formdata,
                 meta={'UF': uf, 'formdata': formdata}
             )
+
+            sleep(4)
 
     def parse(self, response):
         table_columns = response.xpath('//table[last()]//td').extract()
@@ -61,6 +65,7 @@ class Get_uf_ceps(scrapy.Spider):
             response.meta['formdata']['pagini'] = str(starting_page + 112)
             response.meta['formdata']['pagfim'] = str(end_page + 112)
 
+            sleep(4)
             yield scrapy.FormRequest(
                 self.url,
                 formdata=response.meta['formdata'],
