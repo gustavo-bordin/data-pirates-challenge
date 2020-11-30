@@ -4,9 +4,9 @@ BOT_NAME = 'dataPirates'
 SPIDER_MODULES = ['dataPirates.spiders']
 NEWSPIDER_MODULE = 'dataPirates.spiders'
 
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
-DOWNLOAD_DELAY = 8
+DOWNLOAD_DELAY = 5
 
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
@@ -22,8 +22,8 @@ DEFAULT_REQUEST_HEADERS = {
 }
 
 AUTOTHROTTLE_ENABLED = True
-AUTOTHROTTLE_START_DELAY = 8
-AUTOTHROTTLE_MAX_DELAY = 20
+AUTOTHROTTLE_START_DELAY = 5
+AUTOTHROTTLE_MAX_DELAY = 10
 
 ITEM_PIPELINES = {
     'dataPirates.pipelines.Duplicates': 0,
