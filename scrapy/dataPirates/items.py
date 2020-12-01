@@ -1,6 +1,4 @@
 import scrapy
-from scrapytest.tests import Match, Equal, Type, MoreThan, Map, Len, Required
-
 
 class dataPiratesItem(scrapy.Item):
     uf = scrapy.Field()
